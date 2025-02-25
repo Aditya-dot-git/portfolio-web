@@ -1,20 +1,22 @@
-.contact {
-  padding: 60px 20px;
-  background: linear-gradient(135deg, #007bff, #0056b3);
-  color: white;
+.contact-section {
+  padding: 50px 20px;
+  background: linear-gradient(120deg, #0d1117, #161b22);
+  color: #f0f6fc;
   text-align: center;
-  transition: background 0.3s ease-in-out;
+  border-radius: 16px;
 }
 
-.contact:hover {
-  background: linear-gradient(135deg, #0056b3, #003f8c);
-}
-
-.contact h2 {
+.contact-section h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
+  color: #58a6ff;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.contact-description {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  color: #c9d1d9;
 }
 
 .contact-form {
@@ -23,40 +25,75 @@
   gap: 15px;
   max-width: 500px;
   margin: 0 auto;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 1s ease-in-out;
 }
 
-.contact-form input, 
+.contact-form input,
 .contact-form textarea {
   padding: 15px;
-  border: 1px solid #ccc;
+  border: 1px solid #30363d;
   border-radius: 5px;
+  background-color: #0d1117;
+  color: #c9d1d9;
   font-size: 1rem;
+  outline: none;
   transition: border-color 0.3s;
 }
 
-.contact-form input:focus, 
+.contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: #007bff;
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  border-color: #58a6ff;
+}
+
+.contact-form textarea {
+  resize: none;
+  min-height: 120px;
 }
 
 .contact-form button {
-  background: #ffdd57;
-  color: #222;
   padding: 12px;
-  font-size: 1.1rem;
+  background-color: #238636;
+  color: #f0f6fc;
   border: none;
   border-radius: 5px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: transform 0.3s, background 0.3s;
+  transition: background-color 0.3s;
 }
 
 .contact-form button:hover {
-  background: #ffc107;
-  transform: scale(1.05);
+  background-color: #2ea043;
+}
+
+.contact-form button:disabled {
+  background-color: #30363d;
+  cursor: not-allowed;
+}
+
+.status-message {
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #58a6ff;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

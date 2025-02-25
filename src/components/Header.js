@@ -12,7 +12,7 @@ const Header = () => {
           <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#resume">Resume</a></li>
-          <li><a href="mailto:adityajhajee7889@gmail.com">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </header>

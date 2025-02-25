@@ -12,7 +12,7 @@ function ResumeSection() {
     >
       <h2>Resume</h2>
       <p>Click below to view or download my resume.</p>
-      <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer" className="cta-button">View Resume</a>
+      <a href="/Resume1.pdf" target="_blank" rel="noopener noreferrer" className="cta-button">View Resume</a>
     </motion.section>
   );
 }

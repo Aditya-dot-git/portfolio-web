@@ -1,49 +1,43 @@
 import React from 'react';
 import '../styles/ProjectsSection.css';
 import { motion } from 'framer-motion';
-import { FaDocker, FaCloud, FaTools } from 'react-icons/fa'; // Add DevOps-related icons
+import { FaFilm, FaAws } from 'react-icons/fa';
 
 function ProjectsSection() {
   const projects = [
     { 
-      name: 'Image Processing App', 
-      description: 'Serverless app using AWS Lambda for efficient image processing.',
-      link: '#',
-      icon: <FaCloud />,
-      animation: { rotate: 360 } // Example animation for cloud project
+      name: 'Filmy Buzz', 
+      description: "Developed a movie rating and trailer website. Implemented an intuitive user interface for easy user interaction.",
+      link: 'https://filmybuzz-latestmovies.netlify.app/',
+      icon: <FaFilm />, // Film icon to represent movie-related project
+      animation: { opacity: 1, y: 0 }
     },
     { 
-      name: 'Portfolio Website', 
-      description: 'Interactive portfolio built with ReactJS and deployed via CI/CD pipelines.',
-      link: '#',
-      icon: <FaTools />,
-      animation: { scale: 1.1 } // Slight scaling effect for CI/CD projects
-    },
-    { 
-      name: 'DevOps Dashboard', 
-      description: 'Automates CI/CD workflows and integrates monitoring tools like Jenkins, Docker.',
-      link: '#',
-      icon: <FaDocker />,
-      animation: { x: 20, opacity: 0.8 } // Sliding effect for automation-based projects
+      name: 'Deployment of Customer Success Platform', 
+      description: 'Built and pushed Docker images to Amazon ECR and deployed services on ECS with secure task definitions. Automated CI/CD pipelines using GitHub Actions for seamless backend and frontend deployments. Ensured scalability and service stability through optimized AWS configurations and deployment workflows.',
+      link: 'https://github.com/adityajha28/Deployment-Amandeep-CSP-',
+      icon: <FaAws />, // AWS icon to represent cloud deployment project
+      animation: { opacity: 1, y: 0 }
     },
   ];
 
   return (
     <motion.section className="projects"
       id="projects"
-      initial={{ y: '100vh' }}
-      animate={{ y: 0 }}
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ type: 'spring', stiffness: 50 }}
     >
-      <h2>DevOps Projects</h2>
+      <h2>Projects</h2>
       <div className="projects-grid">
         {projects.map((project, index) => (
           <motion.div 
             key={index} 
             className="project-card" 
             whileHover={{ scale: 1.05 }} 
-            animate={project.animation}
-            transition={{ type: 'spring', stiffness: 80 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
           >
             <div className="project-icon">
               {project.icon}

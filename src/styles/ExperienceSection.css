@@ -1,46 +1,76 @@
 .experience-section {
-    background: #282c34;
-    padding: 50px 20px;
-  }
-  
-  .experience-section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #61dafb;
-  }
-  
-  .experience-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-  
-  .experience-card {
-    background: #20232a;
-    padding: 20px;
-    border-radius: 8px;
-    width: 300px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s;
-  }
-  
-  .experience-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .experience-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-  
-  .experience-card ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .experience-card li {
-    margin: 5px 0;
-    color: #ffffff;
-  }
-  
+  background: #181818; /* Darker background for better contrast */
+  padding: 80px 20px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.experience-section h2 {
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+  color: #00d8ff; /* Bright accent color */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.experience-card {
+  background: #242424; /* Slightly lighter than the section for contrast */
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.experience-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.experience-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  color: #00ffcc; /* Different shade for job title */
+}
+
+.experience-card p {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin: 5px 0;
+}
+
+.experience-card strong {
+  color: #f39c12; /* Highlighted company name */
+  font-size: 1.3rem;
+}
+
+.experience-card ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.experience-card li {
+  font-size: 1.1rem;
+  color: #b0b0b0;
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.experience-card li::before {
+  content: "•";
+  color: #00d8ff;
+  position: absolute;
+  left: 0;
+  top: 3px;
+  font-size: 1.3rem;
+}

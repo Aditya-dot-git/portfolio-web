@@ -1,3 +1,4 @@
+// src/App.js
 // Importing necessary libraries
 import React from 'react';
 import './App.css';
@@ -8,7 +9,7 @@ import ProjectsSection from './components/ProjectsSection';
 import ResumeSection from './components/ResumeSection';
 import ExperienceSection from './components/ExperienceSection';
 import ContactSection from './components/ContactSection';
-import Footer from './components/Footer';
+import Footer from './components/Footer'; 
 
 // Main App Component
 function App() {
@@ -29,4 +30,3 @@ function App() {
 }
 
 export default App;
- 
