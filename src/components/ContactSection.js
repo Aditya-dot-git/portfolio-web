@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import emailjs from 'emailjs-com';
 import '../styles/ContactSection.css';
+import { ThemeContext } from './ThemeContext';
 
 const ContactSection = () => {
+  const { theme } = useContext(ThemeContext);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -22,14 +24,14 @@ const ContactSection = () => {
     setStatusMessage('');
     emailjs
       .send(
-        'service_157opcl', // Replace with your EmailJS Service ID
-        'template_ug203pi', // Replace with your EmailJS Template ID
+        'service_157opcl',
+        'template_ug203pi',
         {
           name: formData.name,
           email: formData.email,
           message: formData.message,
         },
-        'NSUfO9Y2FoZNUNXKf' // Replace with your EmailJS Public Key
+        'NSUfO9Y2FoZNUNXKf'
       )
       .then(
         (response) => {
@@ -45,7 +47,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="contact-section">
+    <section id="contact" className={`contact-section ${theme}`}>
       <h2>Contact Me</h2>
       <p className="contact-description">
         Have a question or want to collaborate? Drop me a message below, and I'll get back to you!

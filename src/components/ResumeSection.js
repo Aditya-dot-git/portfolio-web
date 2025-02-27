@@ -1,19 +1,30 @@
-import React from 'react';
+// src/components/ResumeSection.js
+import React, { useContext } from 'react';
 import '../styles/ResumeSection.css';
-import { motion } from 'framer-motion';
+import { ThemeContext } from './ThemeContext';
+import { FiFileText } from 'react-icons/fi';
 
 function ResumeSection() {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <motion.section className="resume"
-      id="resume"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-    >
-      <h2>Resume</h2>
-      <p>Click below to view or download my resume.</p>
-      <a href="/Resume1.pdf" target="_blank" rel="noopener noreferrer" className="cta-button">View Resume</a>
-    </motion.section>
+    <section className={`resume-section ${theme}`} id="resume">
+      <div className="resume-card">
+        <div className="resume-icon">
+          <FiFileText size={80} />
+        </div>
+        <h2>Resume</h2>
+        <p>Click below to view or download my resume.</p>
+        <a 
+          href="/Resume1.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="resume-button"
+        >
+          View Resume
+        </a>
+      </div>
+    </section>
   );
 }
 

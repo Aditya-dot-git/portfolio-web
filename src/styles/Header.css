@@ -1,21 +1,49 @@
+/* Root Variables */
+:root {
+  --bg-color: #FFFFFF;
+  --text-color: #333333;
+  --accent-color: #1E90FF;
+  --logo-color: #2C3E50;
+}
+
+body.dark-theme {
+  --bg-color: #000000;
+  --text-color: #E0E0E0;
+  --accent-color: #1E90FF;
+  --logo-color: #E0E0E0;
+}
+
+/* Header */
 .header {
-  background-color: #20232a;
+  background-color: var(--bg-color);
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
+/* Logo */
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  color: #61dafb;
+  color: var(--logo-color);
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
+.logo:hover {
+  color: var(--accent-color);
+}
+
+/* Navigation */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 15px;
+  gap: 20px;
 }
 
 .nav-links li {
@@ -23,11 +51,99 @@
 }
 
 .nav-links a {
-  color: #ffffff;
-  font-size: 1rem;
-  transition: color 0.3s;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  text-decoration: none;
+  padding: 5px 10px;
+  transition: color 0.3s, background 0.3s;
+  border-radius: 4px;
 }
 
 .nav-links a:hover {
-  color: #61dafb;
+  color: var(--bg-color);
+  background-color: var(--accent-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Sliding Toggle Button */
+.theme-toggle {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.toggle-checkbox {
+  display: none;
+}
+
+.toggle-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 50px;
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+  transition: background-color 0.3s;
+  position: relative;
+}
+
+.toggle-ball {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: transform 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #f39c12;
+}
+
+.toggle-checkbox:checked + .toggle-label {
+  background-color: var(--accent-color);
+}
+
+.toggle-checkbox:checked + .toggle-label .toggle-ball {
+  transform: translateX(24px);
+  color: #f1c40f;
+}
+
+/* Sun and Moon Icons */
+.icon-sun {
+  color: #f39c12;
+}
+
+.icon-moon {
+  color: #f1c40f;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    align-items: flex-start;
+    padding: 10px 0;
+  }
+
+  .nav-links a {
+    width: 100%;
+  }
+
+  .theme-toggle {
+    margin-top: 10px;
+  }
 }

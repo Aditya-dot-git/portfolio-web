@@ -126,3 +126,61 @@
     min-height: auto;
   }
 }
+
+/* Light Theme */
+.projects.light {
+  background: #f0f0f0;
+  color: #1a1a1a;
+}
+
+.projects.light .project-card {
+  background: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.projects.light h2 {
+  color: #007acc;
+}
+
+.projects.light .project-link {
+  color: #007acc;
+  background: rgba(0, 122, 204, 0.2);
+  border: 1px solid #007acc;
+}
+
+/* Light Theme - Project Title */
+.projects.light .project-card h3 {
+  color: #333333; /* Darker color for better contrast in light theme */
+}
+
+
+.projects.light .project-link:hover {
+  background: #007acc;
+  color: #ffffff;
+}
+
+/* Dark Theme */
+.projects.dark {
+  background: #0d0d0d;
+  color: #ffffff;
+}
+
+.projects.dark .project-card {
+  background: #1a1a1a;
+  box-shadow: 0 4px 8px rgba(0, 255, 255, 0.1);
+}
+
+.projects.dark h2 {
+  color: #2cb3dc;
+}
+
+.projects.dark .project-link {
+  color: #2cb3dc;
+  background: rgba(44, 179, 220, 0.2);
+  border: 1px solid #2cb3dc;
+}
+
+.projects.dark .project-link:hover {
+  background: #2cb3dc;
+  color: #0d0d0d;
+}

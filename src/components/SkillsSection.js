@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../styles/SkillsSection.css';
+import { ThemeContext } from './ThemeContext'; // Adjust the import path as needed
 import { 
   FaReact, FaHtml5, FaCss3Alt, FaJs, FaDocker, FaGitAlt, FaLinux, FaAws, FaCuttlefish, FaJava, FaGithub 
 } from 'react-icons/fa';
@@ -10,6 +11,8 @@ import {
 import { FaDatabase } from 'react-icons/fa';
 
 const SkillsSection = () => {
+  const { theme } = useContext(ThemeContext);
+
   const skills = [
     { 
       category: "Programming Languages", 
@@ -58,7 +61,11 @@ const SkillsSection = () => {
   ];
 
   return (
-    <section id="skills" className="skills-section">
+    <section 
+      id="skills" 
+      className={`skills-section ${theme === 'dark' ? 'dark-mode' : 'light-mode'}`}
+
+    >
       <h2>Technical Skills</h2>
       <div className="skills-grid">
         {skills.map((skillCategory, index) => (

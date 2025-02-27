@@ -1,76 +1,78 @@
-.experience-section {
-  background: #181818; /* Darker background for better contrast */
-  padding: 80px 20px;
-  border-radius: 16px;
-  text-align: center;
+/* Light Theme */
+.experience-section.light {
+  background: #FFFCF2;
+  color: #252422;
+}
+
+.experience-section.light h2 {
+  color: #252422;
+}
+
+.experience-card.light {
+  background: #FFF;
+  color: #403D39;
+  box-shadow: 0 8px 15px rgba(64, 61, 57, 0.1);
+  border: 1px solid rgba(64, 61, 57, 0.1);
+}
+
+.experience-card.light h3 {
+  color: #252422;
+}
+
+.experience-card.light strong {
+  color: #EB5E28;
+}
+
+.experience-card.light li {
+  color: #403D39;
+}
+
+/* Dark Theme */
+.experience-section.dark {
+  background: #1E1E1E;
+  color: #E0E0E0;
+}
+
+.experience-section.dark h2 {
+  color: #E0E0E0;
+}
+
+.experience-card.dark {
+  background: #2C2C2C;
+  color: #E0E0E0;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.experience-card.dark h3 {
+  color: #F0F0F0;
+}
+
+.experience-card.dark strong {
+  color: #FFA726;
+}
+
+.experience-card.dark li {
+  color: #C0C0C0;
+}
+
+.experience-card:hover {
+  transform: translateY(-10px);
+  transition: transform 0.3s ease;
 }
 
 .experience-section h2 {
   font-size: 2.8rem;
   margin-bottom: 40px;
-  color: #00d8ff; /* Bright accent color */
   text-transform: uppercase;
   letter-spacing: 2px;
-}
-
-.experience-list {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  max-width: 800px;
-  margin: 0 auto;
+  font-weight: 700;
 }
 
 .experience-card {
-  background: #242424; /* Slightly lighter than the section for contrast */
   padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 16px;
   text-align: left;
-}
-
-.experience-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-}
-
-.experience-card h3 {
-  font-size: 1.8rem;
-  margin-bottom: 8px;
-  color: #00ffcc; /* Different shade for job title */
-}
-
-.experience-card p {
-  font-size: 1.2rem;
-  color: #ffffff;
-  margin: 5px 0;
-}
-
-.experience-card strong {
-  color: #f39c12; /* Highlighted company name */
-  font-size: 1.3rem;
-}
-
-.experience-card ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 15px;
-}
-
-.experience-card li {
-  font-size: 1.1rem;
-  color: #b0b0b0;
-  margin-bottom: 8px;
   position: relative;
-  padding-left: 20px;
-}
-
-.experience-card li::before {
-  content: "•";
-  color: #00d8ff;
-  position: absolute;
-  left: 0;
-  top: 3px;
-  font-size: 1.3rem;
+  overflow: hidden;
 }

@@ -1,6 +1,4 @@
-// src/App.js
-// Importing necessary libraries
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
@@ -10,9 +8,15 @@ import ResumeSection from './components/ResumeSection';
 import ExperienceSection from './components/ExperienceSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer'; 
+import { ThemeContext } from './components/ThemeContext';
 
-// Main App Component
 function App() {
+  const { theme } = useContext(ThemeContext);
+
+  useEffect(() => {
+    document.body.className = theme === 'dark' ? 'dark-theme' : 'light-theme';
+  }, [theme]);
+
   return (
     <div className="App">
       <Header />
@@ -28,5 +32,8 @@ function App() {
     </div>
   );
 }
+<div className="shape"></div>;
+<div className="shape"></div>;
+<div className="shape"></div>;
 
 export default App;

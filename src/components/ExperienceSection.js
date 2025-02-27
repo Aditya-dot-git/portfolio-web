@@ -1,7 +1,11 @@
-import React from 'react';
+// src/components/ExperienceSection.js
+import React, { useContext } from 'react';
+import { ThemeContext } from './ThemeContext';
 import '../styles/ExperienceSection.css';
 
 const ExperienceSection = () => {
+  const { theme } = useContext(ThemeContext);
+
   const experiences = [
     {
       title: "DevOps Intern",
@@ -50,11 +54,11 @@ const ExperienceSection = () => {
   ];
 
   return (
-    <section id="experience" className="experience-section">
+    <section id="experience" className={`experience-section ${theme}`}>
       <h2>Experience</h2>
       <div className="experience-list">
         {experiences.map((experience, index) => (
-          <div key={index} className="experience-card">
+          <div key={index} className={`experience-card ${theme}`}>
             <h3>{experience.title}</h3>
             <p><strong>{experience.company}</strong> - {experience.location}</p>
             <p>{experience.duration}</p>

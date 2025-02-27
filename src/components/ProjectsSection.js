@@ -1,28 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../styles/ProjectsSection.css';
 import { motion } from 'framer-motion';
 import { FaFilm, FaAws } from 'react-icons/fa';
+import { ThemeContext } from './ThemeContext'; // Import ThemeContext
 
 function ProjectsSection() {
+  const { theme } = useContext(ThemeContext); // Access theme from context
+
   const projects = [
     { 
       name: 'Filmy Buzz', 
       description: "Developed a movie rating and trailer website. Implemented an intuitive user interface for easy user interaction.",
       link: 'https://filmybuzz-latestmovies.netlify.app/',
       icon: <FaFilm />, // Film icon to represent movie-related project
-      animation: { opacity: 1, y: 0 }
     },
     { 
       name: 'Deployment of Customer Success Platform', 
       description: 'Built and pushed Docker images to Amazon ECR and deployed services on ECS with secure task definitions. Automated CI/CD pipelines using GitHub Actions for seamless backend and frontend deployments. Ensured scalability and service stability through optimized AWS configurations and deployment workflows.',
       link: 'https://github.com/adityajha28/Deployment-Amandeep-CSP-',
       icon: <FaAws />, // AWS icon to represent cloud deployment project
-      animation: { opacity: 1, y: 0 }
     },
   ];
 
   return (
-    <motion.section className="projects"
+    <motion.section 
+      className={`projects ${theme}`}  // Apply the theme class
       id="projects"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}

@@ -1,99 +1,107 @@
 .contact-section {
-  padding: 50px 20px;
-  background: linear-gradient(120deg, #0d1117, #161b22);
-  color: #f0f6fc;
+  padding: 80px 20px;
+  max-width: 800px;
+  margin: 0 auto;
   text-align: center;
   border-radius: 16px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .contact-section h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #58a6ff;
-  animation: fadeInDown 1s ease-in-out;
+  color: var(--text-color);
 }
 
-.contact-description {
-  margin-bottom: 20px;
-  font-size: 1.2rem;
-  color: #c9d1d9;
+.contact-section p.contact-description {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  color: var(--text-color);
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  max-width: 500px;
-  margin: 0 auto;
-  animation: fadeInUp 1s ease-in-out;
+  gap: 20px;
 }
 
 .contact-form input,
 .contact-form textarea {
   padding: 15px;
-  border: 1px solid #30363d;
-  border-radius: 5px;
-  background-color: #0d1117;
-  color: #c9d1d9;
+  border-radius: 8px;
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  color: var(--input-text);
   font-size: 1rem;
-  outline: none;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: #58a6ff;
+  outline: none;
+  border-color: var(--button-bg);
+  box-shadow: 0 0 10px rgba(235, 94, 40, 0.2);
 }
 
 .contact-form textarea {
-  resize: none;
-  min-height: 120px;
+  resize: vertical;
+  min-height: 150px;
 }
 
 .contact-form button {
-  padding: 12px;
-  background-color: #238636;
-  color: #f0f6fc;
+  padding: 15px;
   border: none;
-  border-radius: 5px;
-  font-size: 1rem;
+  border-radius: 8px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 8px 15px var(--button-shadow);
 }
 
 .contact-form button:hover {
-  background-color: #2ea043;
+  background-color: var(--button-hover-bg);
+  box-shadow: 0 10px 20px var(--button-hover-shadow);
 }
 
 .contact-form button:disabled {
-  background-color: #30363d;
+  background-color: #ccc;
   cursor: not-allowed;
 }
 
 .status-message {
-  margin-top: 15px;
+  margin-top: 20px;
   font-size: 1rem;
-  color: #58a6ff;
+  color: var(--text-color);
 }
 
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Light Mode */
+.light {
+  --bg-color: #F4F4F9;
+  --text-color: #252422;
+  --input-bg: #FFF;
+  --input-text: #252422;
+  --input-border: #CCC5B9;
+  --button-bg: #EB5E28;
+  --button-text: #FFFCF2;
+  --button-shadow: rgba(235, 94, 40, 0.3);
+  --button-hover-bg: #D04E24;
+  --button-hover-shadow: rgba(208, 78, 36, 0.3);
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Dark Mode */
+.dark {
+  --bg-color: #252422;
+  --text-color: #FFFCF2;
+  --input-bg: #403D39;
+  --input-text: #FFFCF2;
+  --input-border: #524F4A;
+  --button-bg: #D04E24;
+  --button-text: #FFFCF2;
+  --button-shadow: rgba(208, 78, 36, 0.3);
+  --button-hover-bg: #EB5E28;
+  --button-hover-shadow: rgba(235, 94, 40, 0.3);
 }
