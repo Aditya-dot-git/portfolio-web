@@ -1,18 +1,18 @@
 /* Projects Section */
 .projects {
   padding: 80px 20px;
-  background: #0d0d0d; /* Dark background */
+  background: #0d0d0d;
   text-align: center;
   font-family: 'Poppins', sans-serif;
   border-radius: 16px;
-  color: #ffffff; /* Light text for contrast */
+  color: #ffffff;
 }
 
 /* Section Heading */
 .projects h2 {
   font-size: 2.5rem;
   margin-bottom: 40px;
-  color: #2cb3dc; /* Neon blue accent */
+  color: #2cb3dc;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   position: relative;
@@ -22,7 +22,6 @@
   content: "";
   width: 80px;
   height: 4px;
-  background: #2cb3dc;
   display: block;
   margin: 10px auto;
   border-radius: 5px;
@@ -32,7 +31,7 @@
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px; /* Equal spacing between cards */
+  gap: 30px;
   justify-content: center;
   align-items: stretch;
   max-width: 1200px;
@@ -52,7 +51,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 340px; /* Ensures equal height for all cards */
+  min-height: 340px;
   position: relative;
   overflow: hidden;
 }
@@ -66,7 +65,7 @@
 /* Project Icon */
 .project-icon {
   font-size: 3rem;
-  color: #00ffcc; /* Neon Green */
+  color: #00ffcc;
   margin-bottom: 15px;
 }
 
@@ -106,8 +105,10 @@
   transform: scale(1.05);
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
+/* ---------- RESPONSIVE DESIGN ---------- */
+
+/* Tablets (max-width: 1024px) */
+@media (max-width: 1024px) {
   .projects {
     padding: 60px 15px;
   }
@@ -117,15 +118,95 @@
   }
 
   .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
     gap: 20px;
   }
 
   .project-card {
-    width: 100%;
     padding: 20px;
     min-height: auto;
   }
 }
+
+/* Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+  .projects {
+    padding: 50px 10px;
+  }
+
+  .projects h2 {
+    font-size: 2rem;
+  }
+
+  .projects-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .project-card {
+    width: 90%;
+    padding: 18px;
+    min-height: auto;
+  }
+
+  .project-icon {
+    font-size: 2.5rem;
+  }
+
+  .project-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .project-card p {
+    font-size: 0.95rem;
+  }
+
+  .project-link {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+}
+
+/* Small Screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .projects {
+    padding: 40px 5px;
+  }
+
+  .projects h2 {
+    font-size: 1.8rem;
+  }
+
+  .projects-grid {
+    gap: 12px;
+  }
+
+  .project-card {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .project-icon {
+    font-size: 2.2rem;
+  }
+
+  .project-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .project-card p {
+    font-size: 0.9rem;
+  }
+
+  .project-link {
+    font-size: 0.85rem;
+    padding: 7px 10px;
+  }
+}
+
+/* ---------- THEME SUPPORT ---------- */
 
 /* Light Theme */
 .projects.light {
@@ -139,7 +220,7 @@
 }
 
 .projects.light h2 {
-  color: #007acc;
+  color: #0f0f0f;
 }
 
 .projects.light .project-link {
@@ -148,11 +229,9 @@
   border: 1px solid #007acc;
 }
 
-/* Light Theme - Project Title */
 .projects.light .project-card h3 {
-  color: #333333; /* Darker color for better contrast in light theme */
+  color: #333333;
 }
-
 
 .projects.light .project-link:hover {
   background: #007acc;

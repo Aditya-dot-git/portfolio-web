@@ -4,9 +4,21 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
-  overflow-x: hidden;
+  overflow-x: hidden;  /* ✅ Prevent horizontal scrolling */
   position: relative;
   padding: 0;
+}
+
+/* Ensure elements don’t cause overflow */
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* Responsive fixes for better text scaling */
+h1, h2, h3, p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 a {
@@ -38,11 +50,26 @@ main {
   flex-direction: column;
   gap: 50px;
   padding: 50px 20px;
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   z-index: 2;
   position: relative;
   overflow: visible;
+}
+
+/* ✅ Mobile-specific spacing adjustments */
+@media (max-width: 768px) {
+  main {
+    gap: 30px;
+    padding: 30px 15px;  /* ✅ Reduce padding on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    gap: 20px;
+    padding: 20px 10px;
+  }
 }
 
 /* Light Theme */
@@ -92,6 +119,19 @@ body::after {
   background: radial-gradient(circle, var(--corner-accent), transparent 70%);
 }
 
+/* ✅ Adjusting corner accents for mobile */
+@media (max-width: 768px) {
+  body::before {
+    width: 180px;
+    height: 180px;
+  }
+
+  body::after {
+    width: 200px;
+    height: 200px;
+  }
+}
+
 /* Side Accents */
 main::before,
 main::after {
@@ -115,6 +155,25 @@ main::after {
   background: linear-gradient(to left, var(--side-accent), transparent);
 }
 
+/* ✅ Responsive Fix for Side Accents */
+@media (max-width: 768px) {
+  main::before,
+  main::after {
+    display: none; /* Remove side accents on smaller screens */
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
+
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* ✅ Prevent horizontal scroll */
+}
+
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+

@@ -46,7 +46,7 @@ function ProjectsSection() {
             </div>
             <h3>{project.name}</h3>
             <p>{project.description}</p>
-            <a href={project.link} className="project-link">View Project</a>
+            <a href={project.link} className="project-link" target='_blank' rel="noopener noreferrer" >View Project</a>
           </motion.div>
         ))}
       </div>

@@ -48,7 +48,7 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className={`contact-section ${theme}`}>
-      <h2>Contact Me</h2>
+      <h2 className='Head-Text'>Contact Me</h2>
       <p className="contact-description">
         Have a question or want to collaborate? Drop me a message below, and I'll get back to you!
       </p>

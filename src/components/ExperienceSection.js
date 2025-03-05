@@ -1,76 +1,62 @@
-// src/components/ExperienceSection.js
-import React, { useContext } from 'react';
-import { ThemeContext } from './ThemeContext';
-import '../styles/ExperienceSection.css';
+import React, { useContext } from "react";
+import "../styles/ExperienceSection.css";
+import { ThemeContext } from "./ThemeContext"; // Import theme context
+
+const experiences = [
+  {
+    role: "DevOps Intern",
+    company: "SmartWorks Coworking Spaces Pvt. Ltd.",
+    duration: "Oct 2024 - Present",
+    responsibilities: [
+      "Deployed and managed AWS services (ECS Fargate, Lambda).",
+      "Integrated SonarQube for code quality checks and monitoring.",
+      "Containerized applications with Docker, optimizing deployments.",
+      "Analyzed CPU and memory utilization to optimize resources."
+    ]
+  },
+  {
+    role: "Full Stack Developer Intern",
+    company: "Devangles Private Limited",
+    duration: "Aug 2024 - Sep 2024",
+    responsibilities: [
+      "Contributed to a project management tool by gathering requirements.",
+      "Implemented Firebase for real-time data management.",
+      "Integrated Google Workspace with Okta for secure authentication."
+    ]
+  },
+  {
+    role: "DevOps Intern",
+    company: "Promact Infotech Pvt. Ltd.",
+    duration: "Jan 2024 - Apr 2024",
+    responsibilities: [
+      "Worked with Linux, Git, AWS, Docker, Terraform.",
+      "Developed CI/CD pipelines using Jenkins and GitHub Actions.",
+      "Implemented Infrastructure as Code with Terraform."
+    ]
+  }
+];
 
 const ExperienceSection = () => {
-  const { theme } = useContext(ThemeContext);
-
-  const experiences = [
-    {
-      title: "DevOps Intern",
-      company: "SmartWorks Coworking Spaces Pvt. Ltd.",
-      location: "Gurugram, Haryana",
-      duration: "Oct 2024 - Present",
-      description: [
-        "Deployed and managed AWS services (ECS Fargate, Lambda, VPC, DocumentDB, etc.).",
-        "Integrated SonarQube for code quality checks and New Relic for monitoring.",
-        "Containerized applications with Docker, optimizing cloud performance.",
-        "Analyzed CPU and memory utilization to optimize Amazon ECS costs.",
-      ],
-    },
-    {
-      title: "Full Stack Developer Intern",
-      company: "Devangles Private Limited",
-      location: "Ahmedabad, Gujarat",
-      duration: "Aug 2024 - Sep 2024",
-      description: [
-        "Contributed to a project management tool by gathering requirements.",
-        "Implemented Firebase for real-time data management and ArgoCD for automation.",
-        "Integrated Google Workspace with Okta for secure authentication.",
-      ],
-    },
-    {
-      title: "DevOps Intern",
-      company: "Promact Infotech Pvt. Ltd.",
-      location: "Vadodara, Gujarat",
-      duration: "Jan 2024 - Apr 2024",
-      description: [
-        "Worked with Linux, Git, AWS, Docker, Terraform, and CI/CD tools.",
-        "Assisted in deploying key projects like the Customer Success Platform.",
-        "Developed reusable Terraform modules for AWS infrastructure.",
-      ],
-    },
-    {
-      title: "Tech Intern",
-      company: "SmartWorks Coworking Spaces Pvt. Ltd.",
-      location: "Gurugram, Haryana",
-      duration: "Jun 2023 - Jul 2023",
-      description: [
-        "Built an interactive front-end with React, improving UI functionality.",
-        "Collaborated in agile development, resolving bugs and optimizing performance.",
-      ],
-    },
-  ];
+  const { theme } = useContext(ThemeContext); // Get theme from context
 
   return (
-    <section id="experience" className={`experience-section ${theme}`}>
-      <h2>Experience</h2>
-      <div className="experience-list">
-        {experiences.map((experience, index) => (
-          <div key={index} className={`experience-card ${theme}`}>
-            <h3>{experience.title}</h3>
-            <p><strong>{experience.company}</strong> - {experience.location}</p>
-            <p>{experience.duration}</p>
+    <div id="experience" className={`experience-container ${theme === "dark" ? "dark-mode" : ""}`}>
+      <h2 className="Head-Text" style={{fontSize: "3rem"}}>Experience</h2>
+      <div className="card-container">
+        {experiences.map((exp, index) => (
+          <div className="experience-card" key={index}>
+            <h3>{exp.role}</h3>
+            <h4>{exp.company}</h4>
+            <p className={`duration-text ${theme === "dark" ? "dark-text" : "light-text"}`}>{exp.duration}</p>
             <ul>
-              {experience.description.map((desc, idx) => (
-                <li key={idx}>{desc}</li>
+              {exp.responsibilities.map((task, idx) => (
+                <li key={idx}>{task}</li>
               ))}
             </ul>
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 

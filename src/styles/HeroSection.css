@@ -1,39 +1,43 @@
-/* Common Styles */
+/* Ensure the section doesn't exceed viewport width */
 .hero-section {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  overflow: hidden;
+  height: 40vh;
+  width: 100%;
+  max-width: 100vw; /* ✅ Prevents content overflow */
   text-align: center;
   padding: 20px;
-  transition: background 0.3s ease, color 0.3s ease;
+  overflow: hidden; /* ✅ Prevents horizontal scroll */
+  box-sizing: border-box;
 }
 
+/* Ensure content doesn't exceed the screen */
 .hero-content {
-  z-index: 2;
+  max-width: 90%;
+  width: min(90%, 600px); /* ✅ Ensures it scales properly */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
+/* Make sure title and text scale properly */
 .hero-title {
-  font-size: 4rem;
+  font-size: clamp(2rem, 6vw, 4rem); /* ✅ Scales dynamically */
   margin: 0;
   line-height: 1.2;
-}
-
-.hero-title span {
-  color: #eb5e28;
+  word-wrap: break-word;
 }
 
 .hero-subtext {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 3vw, 1.5rem); /* ✅ Adjusts with screen */
   margin: 20px 0;
 }
 
+/* Ensure button resizes properly */
 .hero-btn {
   display: inline-block;
-  padding: 15px 30px;
-  font-size: 1.2rem;
+  padding: 12px 24px; /* ✅ Adjusted padding */
+  font-size: clamp(1rem, 2.5vw, 1.2rem); /* ✅ Dynamic font size */
   color: #fff;
   background: #eb5e28;
   border: none;
@@ -41,40 +45,23 @@
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 10px 20px rgba(235, 94, 40, 0.4);
+  max-width: 90%; /* ✅ Prevents the button from overflowing */
+  text-align: center;
 }
 
-.hero-btn:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(235, 94, 40, 0.6);
+/* ✅ Improve mobile responsiveness */
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 10px;
+  }
+  .hero-title {
+    font-size: 2rem; /* ✅ Further reduce size */
+  }
+  .hero-subtext {
+    font-size: 1rem;
+  }
+  .hero-btn {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
 }
-
-/* Light Theme */
-.hero-section.light {
-  background: #ffffff !important;
-  color: #333 !important;
-}
-
-.hero-section.light .hero-title span {
-  color: #ff6347 !important;
-}
-
-.hero-section.light .hero-btn {
-  background: #ff6347 !important;
-  color: #fff !important;
-}
-
-/* Dark Theme */
-.hero-section.dark {
-  background: #121212 !important;
-  color: #f5f5f5 !important;
-}
-
-.hero-section.dark .hero-title span {
-  color: #eb5e28 !important;
-}
-
-.hero-section.dark .hero-btn {
-  background: #eb5e28 !important;
-  color: #fff !important;
-}
-

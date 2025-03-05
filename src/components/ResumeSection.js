@@ -13,7 +13,7 @@ function ResumeSection() {
         <div className="resume-icon">
           <FiFileText size={80} />
         </div>
-        <h2>Resume</h2>
+        <h2 className='Head-Text'>Resume</h2>
         <p>Click below to view or download my resume.</p>
         <a 
           href="/Resume1.pdf" 

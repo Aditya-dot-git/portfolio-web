@@ -1,31 +1,41 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import '../styles/Header.css';
-import { FaSun, FaMoon } from 'react-icons/fa';
-import { ThemeContext } from './ThemeContext'; // Import ThemeContext
+import { FaSun, FaMoon, FaBars, FaTimes, FaLaptopCode } from 'react-icons/fa'; 
+import { ThemeContext } from './ThemeContext';
 
 const Header = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext); // Use global state
+  const { theme, toggleTheme } = useContext(ThemeContext);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className="header">
-      <div className="logo">Let's see my Portfolio</div>
+      <div className="logo">
+        <FaLaptopCode size={28} /> {/* Tech/Developer-focused Icon */}
+      </div>
+
+      {/* Hamburger Menu */}
+      <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+        {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+      </div>
+
       <nav>
-        <ul className="nav-links">
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#resume">Resume</a></li>
-          <li><a href="#contact">Contact</a></li>
+        <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
+          <li><a href="#skills" onClick={() => setMenuOpen(false)}>Skills</a></li>
+          <li><a href="#experience" onClick={() => setMenuOpen(false)}>Experience</a></li>
+          <li><a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a></li>
+          <li><a href="#resume" onClick={() => setMenuOpen(false)}>Resume</a></li>
+          <li><a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a></li>
         </ul>
       </nav>
+
+      {/* Theme Toggle */}
       <div className="theme-toggle">
         <input 
           type="checkbox" 
           className="toggle-checkbox" 
           id="theme-toggle" 
-          checked={theme === 'dark'} // Check if dark mode is active
-          onChange={toggleTheme} // Use toggleTheme from context
+          checked={theme === 'dark'} 
+          onChange={toggleTheme} 
         />
         <label className="toggle-label" htmlFor="theme-toggle">
           <span className="toggle-ball">

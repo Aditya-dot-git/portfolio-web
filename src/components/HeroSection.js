@@ -1,12 +1,12 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import "../styles/HeroSection.css";
 import { ThemeContext } from "./ThemeContext";
 
 const HeroSection = () => {
   const { theme } = useContext(ThemeContext);
-  useEffect(() => {}, [theme]);
+
   if (!theme) {
-    console.error('Theme is undefined in HeroSection');
+    console.error("Theme is undefined in HeroSection");
     return null;
   }
 
@@ -22,13 +22,6 @@ const HeroSection = () => {
         <a href="mailto:adityajhajee7889@gmail.com" className="hero-btn">
           Get in Touch
         </a>
-      </div>
-      <div className="floating-particles">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
       </div>
     </section>
   );

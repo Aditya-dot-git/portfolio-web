@@ -46,14 +46,14 @@ const SkillsSection = () => {
         { name: "Linux", icon: <FaLinux color="#FCC624" /> },
         { name: "VirtualBox", icon: <SiVirtualbox color="#183A61" /> },
         { name: "Git", icon: <FaGitAlt color="#F05032" /> },
-        { name: "GitHub", icon: <FaGithub color="#181717" /> },
+        { name: "GitHub", icon: <FaGithub color="#696969" /> },
         { name: "AWS", icon: <FaAws color="#FF9900" /> },
         { name: "Google Cloud", icon: <SiGooglecloud color="#4285F4" /> },
         { name: "Docker", icon: <FaDocker color="#2496ED" /> },
         { name: "Terraform", icon: <SiTerraform color="#623CE4" /> },
         { name: "SonarQube", icon: <SiSonarqube color="#4E9BCD" /> },
         { name: "NewRelic", icon: <SiNewrelic color="#008C99" /> },
-        { name: "CI/CD", icon: <SiCircleci color="#343434" /> },
+        { name: "CI/CD", icon: <SiCircleci color="#696969" /> },
         { name: "ArgoCD", icon: <SiArgo color="#EF6B20" /> },
         { name: "Okta", icon: <SiOkta color="#007DC1" /> }
       ] 
