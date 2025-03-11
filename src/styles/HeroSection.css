@@ -49,6 +49,35 @@
   text-align: center;
 }
 
+/* Social Icons */
+.social-icons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.icon-link {
+  text-decoration: none;
+}
+
+.social-icon {
+  font-size: 2rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.linkedin {
+  color: #0077b5;
+}
+
+.github {
+  color: #7a7676;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}
+
 /* ✅ Improve mobile responsiveness */
 @media (max-width: 480px) {
   .hero-section {
@@ -63,5 +92,8 @@
   .hero-btn {
     font-size: 0.9rem;
     padding: 8px 16px;
+  }
+  .social-icon {
+    font-size: 1.8rem;
   }
 }

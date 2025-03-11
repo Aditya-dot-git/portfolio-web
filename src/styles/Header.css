@@ -141,6 +141,9 @@ body.dark-theme {
 
 /* Mobile Adjustments */
 @media (max-width: 768px) {
+  .logo{
+    display: none;
+  }
   .header {
     flex-direction: row;
     justify-content: space-between;
