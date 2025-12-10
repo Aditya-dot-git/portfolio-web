@@ -1,86 +1,128 @@
-import React, { useContext } from 'react';
-import '../styles/SkillsSection.css';
-import { ThemeContext } from './ThemeContext'; // Adjust the import path as needed
-import { 
-  FaReact, FaHtml5, FaCss3Alt, FaJs, FaDocker, FaGitAlt, FaLinux, FaAws, FaCuttlefish, FaJava, FaGithub 
-} from 'react-icons/fa';
-import { 
-  SiMongodb, SiMysql, SiTerraform, SiSonarqube, SiNewrelic, SiFirebase, SiVirtualbox, 
-  SiGooglecloud, SiArgo, SiOkta, SiCircleci 
-} from 'react-icons/si';
-import { FaDatabase } from 'react-icons/fa';
+import React, { useContext } from "react";
+import "../styles/SkillsSection.css";
+import { ThemeContext } from "./ThemeContext";
+
+import {
+  FaReact,
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaDocker,
+  FaGitAlt,
+  FaLinux,
+  FaAws,
+  FaCuttlefish,
+  FaJava,
+  FaGithub,
+  FaDatabase,
+} from "react-icons/fa";
+import {
+  SiMongodb,
+  SiMysql,
+  SiTerraform,
+  SiSonarqube,
+  SiNewrelic,
+  SiFirebase,
+  SiVirtualbox,
+  SiGooglecloud,
+  SiArgo,
+  SiOkta,
+  SiCircleci,
+} from "react-icons/si";
 
 const SkillsSection = () => {
-  const { theme } = useContext(ThemeContext);
+  const themeContext = useContext(ThemeContext);
+  const theme = themeContext?.theme || "light";
 
   const skills = [
-    { 
-      category: "Programming Languages", 
+    {
+      category: "Programming Languages",
       items: [
-        { name: "C++", icon: <FaCuttlefish color="#00599C" /> }, 
-        { name: "Java", icon: <FaJava color="#f89820" /> }
-      ] 
+        { name: "C++", icon: <FaCuttlefish /> },
+        { name: "Java", icon: <FaJava /> },
+      ],
     },
-    { 
-      category: "Web Development", 
+    {
+      category: "Web Development",
       items: [
-        { name: "HTML", icon: <FaHtml5 color="#E34F26" /> },
-        { name: "CSS", icon: <FaCss3Alt color="#1572B6" /> },
-        { name: "JavaScript", icon: <FaJs color="#F7DF1E" /> },
-        { name: "ReactJS", icon: <FaReact color="#61DAFB" /> },
-        { name: "Firebase", icon: <SiFirebase color="#FFCA28" /> }
-      ] 
+        { name: "HTML", icon: <FaHtml5 /> },
+        { name: "CSS", icon: <FaCss3Alt /> },
+        { name: "JavaScript", icon: <FaJs /> },
+        { name: "ReactJS", icon: <FaReact /> },
+        { name: "Firebase", icon: <SiFirebase /> },
+      ],
     },
-    { 
-      category: "Databases", 
+    {
+      category: "Databases",
       items: [
-        { name: "MySQL", icon: <SiMysql color="#4479A1" /> }, 
-        { name: "MongoDB", icon: <SiMongodb color="#47A248" /> },
-        { name: "DynamoDB", icon: <FaDatabase color="#DB4437" /> }, 
-        { name: "Firestore", icon: <SiFirebase color="#FFCA28" /> }
-      ] 
+        { name: "MySQL", icon: <SiMysql /> },
+        { name: "MongoDB", icon: <SiMongodb /> },
+        { name: "DynamoDB", icon: <FaDatabase /> },
+        { name: "Firestore", icon: <SiFirebase /> },
+      ],
     },
-    { 
-      category: "DevOps & Cloud", 
+    {
+      category: "DevOps & Cloud",
       items: [
-        { name: "Linux", icon: <FaLinux color="#FCC624" /> },
-        { name: "VirtualBox", icon: <SiVirtualbox color="#183A61" /> },
-        { name: "Git", icon: <FaGitAlt color="#F05032" /> },
-        { name: "GitHub", icon: <FaGithub color="#696969" /> },
-        { name: "AWS", icon: <FaAws color="#FF9900" /> },
-        { name: "Google Cloud", icon: <SiGooglecloud color="#4285F4" /> },
-        { name: "Docker", icon: <FaDocker color="#2496ED" /> },
-        { name: "Terraform", icon: <SiTerraform color="#623CE4" /> },
-        { name: "SonarQube", icon: <SiSonarqube color="#4E9BCD" /> },
-        { name: "NewRelic", icon: <SiNewrelic color="#008C99" /> },
-        { name: "CI/CD", icon: <SiCircleci color="#696969" /> },
-        { name: "ArgoCD", icon: <SiArgo color="#EF6B20" /> },
-        { name: "Okta", icon: <SiOkta color="#007DC1" /> }
-      ] 
+        { name: "Linux", icon: <FaLinux /> },
+        { name: "VirtualBox", icon: <SiVirtualbox /> },
+        { name: "Git", icon: <FaGitAlt /> },
+        { name: "GitHub", icon: <FaGithub /> },
+        { name: "AWS", icon: <FaAws /> },
+        { name: "Google Cloud", icon: <SiGooglecloud /> },
+        { name: "Docker", icon: <FaDocker /> },
+        { name: "Terraform", icon: <SiTerraform /> },
+        { name: "SonarQube", icon: <SiSonarqube /> },
+        { name: "New Relic", icon: <SiNewrelic /> },
+        { name: "CI/CD", icon: <SiCircleci /> },
+        { name: "Argo CD", icon: <SiArgo /> },
+        { name: "Okta", icon: <SiOkta /> },
+      ],
     },
   ];
 
   return (
-    <section 
-      id="skills" 
-      className={`skills-section ${theme === 'dark' ? 'dark-mode' : 'light-mode'}`}
-
+    <section
+      id="skills"
+      className={`skills-section ${
+        theme === "dark" ? "dark-mode" : "light-mode"
+      }`}
     >
-      <h2>Technical Skills</h2>
-      <div className="skills-grid">
-        {skills.map((skillCategory, index) => (
-          <div key={index} className="skill-category">
-            <h3>{skillCategory.category}</h3>
-            <div className="skill-items">
-              {skillCategory.items.map((skill, idx) => (
-                <div key={idx} className="skill-card">
-                  <span className="skill-icon">{skill.icon}</span>
-                  <p className="skill-name">{skill.name}</p>
-                </div>
-              ))}
+      {/* Background tech layer via ::before / ::after in CSS */}
+
+      <div className="skills-inner">
+        <div className="skills-header">
+          <span className="section-pill">Stack &amp; Tooling</span>
+          <h2 className="skills-title">Technical Skills</h2>
+          <p className="skills-subtitle">
+            A snapshot of the languages, frameworks, and DevOps tooling I use to
+            design, build, deploy, and monitor modern systems.
+          </p>
+        </div>
+
+        <div className="skills-grid">
+          {skills.map((skillCategory, index) => (
+            <div
+              key={skillCategory.category}
+              className="skill-category"
+              style={{ "--category-index": index }}
+            >
+              <div className="skill-category-header">
+                <span className="skill-category-indicator" />
+                <h3>{skillCategory.category}</h3>
+              </div>
+              <div className="skill-items">
+                {skillCategory.items.map((skill) => (
+                  <div key={skill.name} className="skill-card">
+                    <span className="skill-icon">{skill.icon}</span>
+                    <p className="skill-name">{skill.name}</p>
+                    <span className="skill-glow" />
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

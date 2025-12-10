@@ -1,24 +1,29 @@
-import React, { useContext, useEffect } from 'react';
-import './App.css';
-import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-import SkillsSection from './components/SkillsSection';
-import ProjectsSection from './components/ProjectsSection';
-import ResumeSection from './components/ResumeSection';
-import ExperienceSection from './components/ExperienceSection';
-import ContactSection from './components/ContactSection';
-import Footer from './components/Footer'; 
-import { ThemeContext } from './components/ThemeContext';
+import React, { useContext, useEffect } from "react";
+import "./App.css";
+
+import Header from "./components/Header";
+import HeroSection from "./components/HeroSection";
+import SkillsSection from "./components/SkillsSection";
+import ExperienceSection from "./components/ExperienceSection";
+import ProjectsSection from "./components/ProjectsSection";
+import ResumeSection from "./components/ResumeSection";
+import ContactSection from "./components/ContactSection";
+import Footer from "./components/Footer";
+
+import { ThemeContext } from "./components/ThemeContext";
 
 function App() {
   const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
-    document.body.className = theme === 'dark' ? 'dark-theme' : 'light-theme';
+    // Safely toggle theme classes on <body> without nuking other classes
+    const body = document.body;
+    body.classList.remove("light-theme", "dark-theme");
+    body.classList.add(theme === "dark" ? "dark-theme" : "light-theme");
   }, [theme]);
 
   return (
-    <div className="App">
+    <div className={`App ${theme || "light"}`} id="top">
       <Header />
       <main>
         <HeroSection />
@@ -32,8 +37,5 @@ function App() {
     </div>
   );
 }
-<div className="shape"></div>;
-<div className="shape"></div>;
-<div className="shape"></div>;
 
 export default App;

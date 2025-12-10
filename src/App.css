@@ -1,179 +1,119 @@
-body {
-  transition: background-color 0.3s, color 0.3s;
+/* Global Reset / Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  overflow-x: hidden;  /* ✅ Prevent horizontal scrolling */
-  position: relative;
   padding: 0;
 }
 
-/* Ensure elements don’t cause overflow */
-* {
-  box-sizing: border-box;
+/* Let elements size naturally; only media should constrain width */
+img,
+video,
+canvas,
+svg {
   max-width: 100%;
 }
 
-/* Responsive fixes for better text scaling */
-h1, h2, h3, p {
+/* Root + Body */
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  position: relative;
+}
+
+/* Theme Variables */
+/* Light Theme */
+body.light-theme {
+  --bg-color: #f3f4f6;
+  --text-color: #020617;
+  --accent-color: #0ea5e9;
+}
+
+/* Dark Theme */
+body.dark-theme {
+  --bg-color: #020617;
+  --text-color: #e5e7eb;
+  --accent-color: #38bdf8;
+}
+
+/* Typography safety */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
+/* Links */
 a {
   text-decoration: none;
   color: var(--accent-color);
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: color 0.25s ease, transform 0.25s ease;
 }
 
 a:hover {
   text-decoration: underline;
-  color: var(--text-color);
-  transform: scale(1.05);
+  transform: translate3d(0, -1px, 0);
 }
 
+/* App Layout */
 .App {
-  text-align: center;
-  background: transparent;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-  position: relative;
-  z-index: 2;
+  background: transparent;
 }
 
+/* Give the top an anchor for “Back to top” */
+#top {
+  scroll-margin-top: 80px; /* so content is not hidden behind header */
+}
+
+/* Main Content Wrapper */
 main {
   display: flex;
   flex-direction: column;
-  gap: 50px;
-  padding: 50px 20px;
+  gap: 48px;
   width: 100%;
   margin: 0 auto;
-  z-index: 2;
   position: relative;
-  overflow: visible;
+  z-index: 1;
 }
 
-/* ✅ Mobile-specific spacing adjustments */
+/* Ensure sections don't stick to each other visually */
+main > section {
+  position: relative;
+}
+
+/* Spacing tweaks for responsiveness */
 @media (max-width: 768px) {
   main {
-    gap: 30px;
-    padding: 30px 15px;  /* ✅ Reduce padding on smaller screens */
+    gap: 36px;
   }
 }
 
 @media (max-width: 480px) {
   main {
-    gap: 20px;
-    padding: 20px 10px;
+    gap: 28px;
   }
 }
-
-/* Light Theme */
-body.light-theme {
-  --bg-color: #FFFFFF;
-  --text-color: #333333;
-  --accent-color: #1E90FF;
-  --corner-accent: rgba(30,144,255,0.15);
-  --side-accent: rgba(30,144,255,0.05);
-}
-
-/* Dark Theme */
-body.dark-theme {
-  --bg-color: #121212;
-  --text-color: #E0E0E0;
-  --accent-color: #1E90FF;
-  --corner-accent: rgba(255,165,0,0.15);
-  --side-accent: rgba(255,165,0,0.05);
-}
-
-/* Corner Accents */
-body::before,
-body::after {
-  content: '';
-  position: fixed;
-  border-radius: 50%;
-  opacity: 0.3;
-  z-index: 1;
-  pointer-events: none;
-}
-
-body::before {
-  width: 250px;
-  height: 250px;
-  top: 10%;
-  left: 5%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, var(--corner-accent), transparent 70%);
-}
-
-body::after {
-  width: 300px;
-  height: 300px;
-  bottom: 10%;
-  right: 5%;
-  transform: translate(50%, 50%);
-  background: radial-gradient(circle, var(--corner-accent), transparent 70%);
-}
-
-/* ✅ Adjusting corner accents for mobile */
-@media (max-width: 768px) {
-  body::before {
-    width: 180px;
-    height: 180px;
-  }
-
-  body::after {
-    width: 200px;
-    height: 200px;
-  }
-}
-
-/* Side Accents */
-main::before,
-main::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-}
-
-main::before {
-  top: 0;
-  left: -20px;
-  background: linear-gradient(to right, var(--side-accent), transparent);
-}
-
-main::after {
-  bottom: 0;
-  right: -20px;
-  background: linear-gradient(to left, var(--side-accent), transparent);
-}
-
-/* ✅ Responsive Fix for Side Accents */
-@media (max-width: 768px) {
-  main::before,
-  main::after {
-    display: none; /* Remove side accents on smaller screens */
-  }
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-html, body {
-  width: 100%;
-  overflow-x: hidden; /* ✅ Prevent horizontal scroll */
-}
-
-* {
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
