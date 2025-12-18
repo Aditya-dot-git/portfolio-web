@@ -11,10 +11,10 @@ import {
   FaGitAlt,
   FaLinux,
   FaAws,
-  FaCuttlefish,
   FaJava,
   FaGithub,
   FaDatabase,
+  FaNodeJs
 } from "react-icons/fa";
 import {
   SiMongodb,
@@ -38,8 +38,8 @@ const SkillsSection = () => {
     {
       category: "Programming Languages",
       items: [
-        { name: "C++", icon: <FaCuttlefish /> },
         { name: "Java", icon: <FaJava /> },
+        
       ],
     },
     {
@@ -49,6 +49,7 @@ const SkillsSection = () => {
         { name: "CSS", icon: <FaCss3Alt /> },
         { name: "JavaScript", icon: <FaJs /> },
         { name: "ReactJS", icon: <FaReact /> },
+        { name: "NodeJS", icon: <FaNodeJs /> },
         { name: "Firebase", icon: <SiFirebase /> },
       ],
     },
@@ -92,10 +93,10 @@ const SkillsSection = () => {
 
       <div className="skills-inner">
         <div className="skills-header">
-          <span className="section-pill">Stack &amp; Tooling</span>
+          <span className="section-pill">Stack &amp; Tools</span>
           <h2 className="skills-title">Technical Skills</h2>
           <p className="skills-subtitle">
-            A snapshot of the languages, frameworks, and DevOps tooling I use to
+            A snapshot of the languages, frameworks, and DevOps tools I use to
             design, build, deploy, and monitor modern systems.
           </p>
         </div>

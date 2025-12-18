@@ -10,19 +10,34 @@ function Footer() {
     <footer className={`footer ${theme || "light"}`}>
       <div className="footer-inner">
         <div className="footer-glow-line" aria-hidden="true" />
+
         <div className="footer-content">
+          {/* Left */}
           <p className="footer-text">
-            © {currentYear} <span className="footer-name">Aditya Jha</span>. All rights reserved.
+            © {currentYear} <span className="footer-name">Aditya Jha</span>
           </p>
 
-          <div className="footer-meta">
-            <span className="footer-pill">
-              Crafted with React, DevOps &amp; Coffee
-            </span>
-            <a href="#top" className="footer-link">
-              Back to top ↑
-            </a>
+          {/* Center – Signature Watermark */}
+          <div className="system-mark" aria-label="Aditya Jha system signature">
+            <div className="aj-glyph">
+              <span className="aj-layer base">AJ</span>
+              <span className="aj-layer stroke">AJ</span>
+              <span className="aj-layer glow">AJ</span>
+            </div>
+
+            <div className="mark-ring" />
+            <div className="mark-scan" />
+            <div className="mark-grid" />
+
+            <div className="mark-label">
+              ADITYA&nbsp;JHA<span> · SOFTWARE ENGINEER</span>
+            </div>
           </div>
+
+          {/* Right */}
+          <a href="#top" className="footer-link">
+            Back to top ↑
+          </a>
         </div>
       </div>
     </footer>
