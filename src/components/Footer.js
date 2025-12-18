@@ -1,10 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "../styles/Footer.css";
 import { ThemeContext } from "./ThemeContext";
 
 function Footer() {
   const { theme } = useContext(ThemeContext) || { theme: "light" };
   const currentYear = new Date().getFullYear();
+
+  // Mobile tap toggle
+  const [markActive, setMarkActive] = useState(false);
+
+  const handleMarkClick = () => {
+    setMarkActive((prev) => !prev);
+  };
 
   return (
     <footer className={`footer ${theme || "light"}`}>
@@ -18,7 +25,12 @@ function Footer() {
           </p>
 
           {/* Center – Signature Watermark */}
-          <div className="system-mark" aria-label="Aditya Jha system signature">
+          <div
+            className={`system-mark ${markActive ? "active" : ""}`}
+            aria-label="Aditya Jha system signature"
+            onClick={handleMarkClick}
+            role="button"
+          >
             <div className="aj-glyph">
               <span className="aj-layer base">AJ</span>
               <span className="aj-layer stroke">AJ</span>
