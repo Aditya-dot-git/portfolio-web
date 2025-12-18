@@ -63,10 +63,18 @@
   height: 92px;
   display: grid;
   place-items: center;
+  justify-self: center;
+  cursor: default;
+  transition: transform 0.35s ease, filter 0.35s ease;
 }
 
-/* -------- AJ GLYPH -------- */
+/* Hover lift */
+.system-mark:hover {
+  transform: translateY(-4px) scale(1.04);
+  filter: drop-shadow(0 0 18px rgba(56,189,248,0.55));
+}
 
+/* AJ Glyph */
 .aj-glyph {
   position: relative;
   font-family: "JetBrains Mono", "Fira Code", "SF Mono", monospace;
@@ -76,44 +84,38 @@
   z-index: 4;
 }
 
-/* Base */
 .aj-layer.base {
-  position: relative;
   color: currentColor;
 }
 
-/* Stroke outline */
 .aj-layer.stroke {
   position: absolute;
   inset: 0;
   color: transparent;
   -webkit-text-stroke: 1px rgba(56,189,248,0.85);
-  opacity: 0.9;
 }
 
-/* Glow */
+/* Glow layer */
 .aj-layer.glow {
   position: absolute;
   inset: 0;
   color: rgba(56,189,248,0.75);
   filter: blur(8px);
-  opacity: 0.6;
   animation: glyph-pulse 4.5s ease-in-out infinite;
 }
 
-/* Micro glitch */
-.system-mark:hover .aj-layer.stroke {
-  animation: glitch 0.4s steps(2, end);
-}
-
-/* -------- Rings & Effects -------- */
-
+/* Rings */
 .mark-ring {
   position: absolute;
   inset: 0;
   border-radius: 50%;
   border: 1px solid rgba(56,189,248,0.6);
   animation: spin 18s linear infinite;
+}
+
+/* Faster ring on hover */
+.system-mark:hover .mark-ring {
+  animation-duration: 6s;
 }
 
 .mark-grid {
@@ -143,54 +145,31 @@
   opacity: 0.6;
 }
 
-/* Label */
+/* ============================= */
+/*        LABEL (HOVER REVEAL)   */
+/* ============================= */
+
 .mark-label {
   position: absolute;
-  bottom: -1.9rem;
+  bottom: -1.6rem;
   font-size: 0.62rem;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
-  opacity: 0;
-  transform: translateY(6px);
-  transition: opacity 0.35s ease, transform 0.35s ease;
   white-space: nowrap;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    filter 0.35s ease;
+  filter: blur(2px);
 }
 
-.mark-label span {
-  opacity: 0.6;
-}
-
+/* Reveal on hover */
 .system-mark:hover .mark-label {
-  opacity: 0.85;
+  opacity: 0.9;
   transform: translateY(0);
-}
-
-/* Animations */
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-@keyframes scan {
-  to { transform: rotate(360deg); }
-}
-
-@keyframes glyph-pulse {
-  0%, 100% {
-    opacity: 0.4;
-    transform: scale(0.95);
-  }
-  50% {
-    opacity: 0.9;
-    transform: scale(1.05);
-  }
-}
-
-@keyframes glitch {
-  0% { transform: translate(0,0); }
-  25% { transform: translate(1px,-1px); }
-  50% { transform: translate(-1px,1px); }
-  75% { transform: translate(1px,1px); }
-  100% { transform: translate(0,0); }
+  filter: blur(0);
 }
 
 /* Link */
@@ -210,14 +189,59 @@
   transform: translateY(-1px);
 }
 
-/* Responsive */
+/* Animations */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes scan {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes glyph-pulse {
+  0%,100% {
+    opacity: 0.4;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+}
+
+/* ============================= */
+/*        MOBILE (HORIZONTAL)    */
+/* ============================= */
+
 @media (max-width: 640px) {
   .footer-content {
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    text-align: center;
+    gap: 0.8rem;
+  }
+
+  .system-mark {
+    width: 64px;
+    height: 64px;
+  }
+
+  .aj-glyph {
+    font-size: 1.1rem;
+    letter-spacing: 0.16em;
+  }
+
+  /* Always visible on mobile */
+  .mark-label {
+    opacity: 0.85;
+    transform: none;
+    filter: none;
+    font-size: 0.52rem;
+    bottom: -1.2rem;
   }
 
   .footer-link {
-    justify-self: flex-start;
+    justify-self: center;
+    font-size: 0.78rem;
   }
 }
