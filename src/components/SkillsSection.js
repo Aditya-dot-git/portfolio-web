@@ -36,7 +36,7 @@ const SkillsSection = () => {
 
   const skills = [
     {
-      category: "Programming Languages",
+      category: "Programming Language",
       items: [
         { name: "Java", icon: <FaJava /> },
         
